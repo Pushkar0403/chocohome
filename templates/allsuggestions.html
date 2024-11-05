@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Suggestions</title>
+</head>
+<body style="font-family: 'Segoe UI', Arial, sans-serif; margin: 0; padding: 0; background-color: #f8f1e9; color: #4a3728;">
+
+    <!-- Header Section -->
+    <div style="background-color: #3c1810; padding: 40px 20px; text-align: center; box-shadow: 0 2px 4px rgba(0,0,0,0.2);">
+        <h1 style="color: #e6c9a8; font-size: 2.5em; margin: 0; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">
+            Customer Suggestions
+        </h1>
+    </div>
+
+    <!-- Main Content -->
+    <div style="max-width: 800px; margin: 20px auto; padding: 20px; background-color: #ffffff; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+        <table style="width: 100%; border-collapse: collapse; margin-top: 20px;">
+            <thead>
+                <tr>
+                    <th style="background-color: #8b5e3c; color: white; padding: 10px; text-align: left;">Flavor</th>
+                    <th style="background-color: #8b5e3c; color: white; padding: 10px; text-align: left;">Suggestion</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for suggestion in suggestions %}
+                <tr style="border-bottom: 1px solid #ddd;">
+                    <td style="padding: 10px; color: #3c1810;">{{ suggestion.flavor.name if suggestion.flavor else 'N/A' }}</td>
+                    <td style="padding: 10px; color: #3c1810;">{{ suggestion.suggestion }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <!-- Navigation Links -->
+        <div style="text-align: center; margin-top: 30px;">
+            <a href="{{ url_for('add_flavor') }}" style="display: inline-block; background-color: #8b5e3c; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; margin: 5px; transition: background-color 0.3s;">Add Flavor</a>
+            <a href="{{ url_for('add_ingredient') }}" style="display: inline-block; background-color: #8b5e3c; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; margin: 5px; transition: background-color 0.3s;">Add Ingredient</a>
+            <a href="{{ url_for('suggestion') }}" style="display: inline-block; background-color: #8b5e3c; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; margin: 5px; transition: background-color 0.3s;">Suggestions for the Flavors</a>
+            <a href="{{ url_for('get_suggestions') }}" style="display: inline-block; background-color: #8b5e3c; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; margin: 5px; transition: background-color 0.3s;">All Suggestions</a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer style="background-color: #3c1810; color: #e6c9a8; text-align: center; padding: 20px; margin-top: 40px;">
+        <p style="margin: 0;">🍫 The Chocolate House - Where Every Bite Tells a Story</p>
+    </footer>
+
+</body>
+</html>

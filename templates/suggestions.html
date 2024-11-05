@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Flavor Suggestions</title>
+</head>
+<body style="font-family: 'Segoe UI', Arial, sans-serif; margin: 0; padding: 0; background-color: #f8f1e9; color: #4a3728;">
+
+    <!-- Header Section -->
+    <div style="background-color: #3c1810; padding: 40px 20px; text-align: center; box-shadow: 0 2px 4px rgba(0,0,0,0.2);">
+        <h1 style="color: #e6c9a8; font-size: 2.5em; margin: 0; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">
+            Suggest a Flavor
+        </h1>
+    </div>
+
+    <!-- Main Content -->
+    <div style="max-width: 800px; margin: 20px auto; padding: 20px; background-color: #ffffff; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+        <form method="POST" style="margin-top: 20px;">
+            <label for="flavor_id" style="font-weight: bold;">Select Flavor:</label>
+            <select id="flavor_id" name="flavor_id" style="width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #ccc; margin-bottom: 20px;">
+                {% for flavor in flavors %}
+                <option value="{{ flavor.id }}">{{ flavor.name }}</option>
+                {% endfor %}
+            </select>
+
+            <label for="suggestion" style="font-weight: bold;">Your Suggestion:</label>
+            <textarea id="suggestion" name="suggestion" required style="width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #ccc; height: 100px; margin-bottom: 20px;"></textarea>
+
+            <button type="submit" style="background-color: #8b5e3c; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; transition: background-color 0.3s;">
+                Submit Suggestion
+            </button>
+        </form>
+
+        <!-- Navigation Link -->
+        <div style="text-align: center; margin-top: 30px;">
+            <a href="{{ url_for('index') }}" style="text-decoration: none; color: #8b5e3c; font-weight: bold;">Back to Home</a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer style="background-color: #3c1810; color: #e6c9a8; text-align: center; padding: 20px; margin-top: 40px;">
+        <p style="margin: 0;">🍫 The Chocolate House - Where Every Bite Tells a Story</p>
+    </footer>
+
+</body>
+</html>

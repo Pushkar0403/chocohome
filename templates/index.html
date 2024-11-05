@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chocolate House</title>
+</head>
+<body style="font-family: 'Segoe UI', Arial, sans-serif; margin: 0; padding: 0; background-color: #f8f1e9; color: #4a3728;">
+    
+    <!-- Hero Section -->
+    <div style="background-color: #3c1810; padding: 40px 20px; text-align: center; box-shadow: 0 2px 4px rgba(0,0,0,0.2);">
+        <h1 style="color: #e6c9a8; font-size: 2.5em; margin: 0; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">
+            Welcome to the Chocolate House!
+        </h1>
+    </div>
+
+    <!-- Main Content -->
+    <div style="max-width: 800px; margin: 20px auto; padding: 20px;">
+        <h2 style="color: #6b4423; border-bottom: 2px solid #8b5e3c; padding-bottom: 10px; margin-top: 30px;">
+            Our Delightful Flavors
+        </h2>
+        
+        <!-- Flavors List -->
+        <ul style="list-style-type: none; padding: 0;">
+            {% for flavor in flavors %}
+            <li style="background-color: #ffffff; margin: 10px 0; padding: 15px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: flex; justify-content: space-between; align-items: center;">
+                <span style="font-size: 1.1em; color: #3c1810;">{{ flavor.name }}</span>
+                <span style="background-color: #8b5e3c; color: white; padding: 5px 10px; border-radius: 15px; font-size: 0.9em;">
+                    {{ flavor.seasonal }}
+                </span>
+            </li>
+            {% endfor %}
+        </ul>
+
+        <!-- Navigation Links -->
+        <div style="margin-top: 40px; text-align: center; background-color: #ffffff; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+            <a href="{{ url_for('add_flavor') }}" style="display: inline-block; background-color: #8b5e3c; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; margin: 5px; transition: background-color 0.3s;">Add Flavor</a>
+            <a href="{{ url_for('add_ingredient') }}" style="display: inline-block; background-color: #8b5e3c; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; margin: 5px; transition: background-color 0.3s;">Add Ingredient</a>
+            <a href="{{ url_for('suggestion') }}" style="display: inline-block; background-color: #8b5e3c; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; margin: 5px; transition: background-color 0.3s;">Suggestions for Flavors</a>
+            <a href="{{ url_for('get_suggestions') }}" style="display: inline-block; background-color: #8b5e3c; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; margin: 5px; transition: background-color 0.3s;">All Suggestions</a>
+            <a href="{{ url_for('get_ingredients') }}" style="display: inline-block; background-color: #8b5e3c; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; margin: 5px; transition: background-color 0.3s;">All Ingredients</a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer style="background-color: #3c1810; color: #e6c9a8; text-align: center; padding: 20px; margin-top: 40px;">
+        <p style="margin: 0;">🍫 The Chocolate House - Where Every Bite Tells a Story</p>
+    </footer>
+
+</body>
+</html>
